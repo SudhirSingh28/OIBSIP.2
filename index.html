@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Temperature-Convertor</title>
+	<style>
+		body{
+			background-image: url(io.jpg);
+			background-size: cover;
+		}
+		div{
+			width: 450px;
+			height: 350px;
+			border: 4px inset darkred;
+			border-radius: 12px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 8%;
+			background-color: white;
+			opacity: 80%;
+		}
+		input{
+			text-align: center;
+			background-color:#A9FFAF;
+			font-size: 16.8px;
+			
+		}
+		select{
+			text-align: center;
+			margin-top: 10%;
+			margin-left: 50px;
+			font-size: 16.8px;
+			background-color: lightpink;
+
+
+		}
+
+		button{
+			margin-left: 42%;
+			margin-top: 20px;
+			border-radius: 8px ;
+			font-size: 14px;
+			background-color:#FFF180;
+			color: black;
+			cursor: pointer;
+
+			
+		}
+		p{
+			text-align: center;
+			font-size: 30px;
+			color: darkred;
+			text-decoration: 1px double underline;
+			background-color: palegoldenrod;
+
+		}
+		p:hover{
+			height: 115px;
+			font-size: 40px;
+			color: blue;
+		}
+		h1{
+			text-align: center;
+			text-decoration: 1px dashed underline red;
+		}
+		h2{
+			font-size: 50px;
+			text-align: center;
+		}
+		
+	</style>
+</head>
+<body>
+	<h2>Temperature-Convertor to Convert the value of <font color="green">Celsius</font> and <font color="blue">Fahrenheit</font></h2>
+	<div><form id="Temperature">
+<h1> <font color="blue">Temperature</font>-<font color="#EB5E33">Convertor</font></h1>
+  <select id="cont">
+    <option value="celsius"> FAHRENHEIT </option>
+    <option value="fahrenheit">CELSIUS </option>
+   
+  </select>
+    <input type="number" id="value" placeholder="Enter temperature" required><br>
+  <button type="submit">Convert</button>
+  <br>
+  <p id="result"></p>
+</form>
+<script >
+  document.getElementById("Temperature").addEventListener("submit", function(event) {
+  event.preventDefault(); 
+
+ var unit = document.getElementById("cont").value;
+  const temperature = parseFloat(document.getElementById("value").value);
+
+ 
+  let result;
+  if (unit === "celsius") {
+    result = FtoC(temperature);
+  } else if (unit === "fahrenheit") {
+    result = CtoF(temperature);
+  } 
+  document.getElementById("result").textContent = result;
+});
+
+
+function FtoC(temp) {
+  return (temp-32)* 5/9+"  °C";
+}
+
+function CtoF(temp) {
+  return (temp * 9/5) + 32+"  °F";
+}
+</script>
+		
+
+	
+	</div>
+	
+
+	
+
+</body>
+</html>
